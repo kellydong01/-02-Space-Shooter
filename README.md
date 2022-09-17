@@ -24,7 +24,13 @@ https://esahubble.org/images/heic2018b/
 
 https://esahubble.org/images/opo0511a/
 
+https://opengameart.org/content/laser-fire
+
+https://opengameart.org/content/explosion-0
+
+https://opengameart.org/content/warp-sound-4
+
 ## Future Development
 
 ## Created by
-Jason Francis
+Kelly Dong
