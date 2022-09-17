@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var small_speed = 4.0
-var initial_speed = 3.0
+var small_speed = 7.0
+var initial_speed = 5.0
 var health = 12
 
-onready var Asteroid_small = load("res://Asteroid/Asteroid_small.tscn")
+onready var Asteroid_small = load("res://Asteroid/Asteroid_Small.tscn")
 var small_asteroids = [Vector2(0,-30),Vector2(30,30),Vector2(-30,30), Vector2(30, -30)]
 
 func _ready():

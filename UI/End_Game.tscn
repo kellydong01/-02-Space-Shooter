@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/End_Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/buttonBlue.png" type="Texture" id=3]
 [ext_resource path="res://Assets/buttonRed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/background.jpg" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -22,16 +23,12 @@ __meta__ = {
 "_edit_vertical_guides_": [ 966.0, 960.0 ]
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -493.0
-margin_top = -250.0
-margin_right = 507.0
-margin_bottom = 250.0
-color = Color( 0.427734, 0.43277, 0.75, 1 )
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 292.0
+rect_scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -83,4 +80,4 @@ icon = ExtResource( 3 )
 icon_align = 1
 
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="Play_Again" to="." method="_on_Play_Again2_pressed"]
+[connection signal="pressed" from="Play_Again" to="." method="_on_Play_Again_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/buttonBlue.png" type="Texture" id=3]
 [ext_resource path="res://Assets/buttonRed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/background.jpg" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -22,8 +23,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_vertical_guides_": [ 959.0 ]
+"_edit_vertical_guides_": [ 959.0, 1910.0 ]
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 292.0
+rect_scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -67,7 +75,11 @@ margin_left = 20.0
 margin_top = -56.24
 margin_right = 254.0
 margin_bottom = -0.240021
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "QUIT"
 icon = ExtResource( 4 )

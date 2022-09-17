@@ -6,7 +6,7 @@ onready var Indicator = load("res://UI/Indicator.tscn")
 
 func _ready():
 	lives_pos.x = 20
-	lives_pos.y = Global.VP.y - 790
+	lives_pos.y = Global.VP.y - 2590
 	update_score()
 	update_time()
 	update_lives()

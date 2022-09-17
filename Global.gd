@@ -10,10 +10,19 @@ var health = 0
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	randomize()
-	VP = get_viewport().size
+	VP = Vector2(2560, 2602)
 	var _signal = get_tree().get_root().connect("size_changed", self, "_resize")
 	reset()
-	
+
+func _resize():
+	pass
+
+func reset():
+	get_tree().paused = false
+	score = 0
+	time = 120
+	lives = 8
+	health = 100
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
@@ -27,16 +36,6 @@ func _unhandled_input(event):
 			else:
 				get_tree().paused = true
 				Menu.show()
-
-func _resize():
-	VP = get_viewport().size
-
-func reset():
-	get_tree().paused = false
-	score = 0
-	time = 90
-	lives = 5
-	health = 80
 
 func update_hp(h):
 	health -= h

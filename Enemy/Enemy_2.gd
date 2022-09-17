@@ -1,28 +1,30 @@
 extends KinematicBody2D
 
-var y_positions = [100,150,200,700,750]
-var x_positions = [-100, 800]
+var y_positions = [300, 900]
+var x_positions = [-100, 1200, 1500]
 var initial_position = Vector2.ZERO
-var direction = Vector2(1.5,0)
-var wobble = 20.0
-var r_speed = 4.0
+var velocity = Vector2(-60.0, 0.0)
+var r_speed = 2.5
+var y = 3.5
+var x = 5.0
 
 var nose = Vector2(0, -60)
-var health = 15
+var health = 9
 
 var Effects = null
 onready var Explosion = load("res://Effects/Explosion.tscn")
-onready var Enemy_Bullet = load("res://Enemy/Enemy_Bullet_1.tscn")
+onready var Enemy_Bullet = load("res://Enemy/Enemy_Bullet_2.tscn")
 
 func _ready():
 	initial_position.x = x_positions[randi() % x_positions.size()]
 	initial_position.y = y_positions[randi() % y_positions.size()]
 	position = initial_position
 	
-func _physics_process(_delta):
+func _physics_process(delta):
+	position += velocity.rotated(rotation)*(delta*2)
+	position.x += x
+	position.y += y
 	rotation_degrees += r_speed
-	position += direction*3.5
-	position.y = initial_position.y + sin(position.x/20)*wobble
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)
 
@@ -34,7 +36,7 @@ func damage(d):
 			var explosion = Explosion.instance()
 			explosion.global_position = global_position
 			Effects.add_child(explosion)
-			Global.update_score(250)
+			Global.update_score(500)
 		queue_free()
 
 func _on_Timer_timeout():

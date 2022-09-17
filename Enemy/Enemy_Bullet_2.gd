@@ -1,7 +1,7 @@
 extends Area2D
 
-var velocity = Vector2(0.0 , -250.0)
-var damage = 6
+var velocity = Vector2(0.0 , -900.0)
+var damage = 3
 
 var Effects = null
 onready var Explosion = load("res://Effects/Explosion.tscn")
@@ -14,7 +14,7 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	queue_free()
 
-func _on_Enemy_Bullet_1_body_entered(body):
+func _on_Enemy_Bullet_2_body_entered(body):
 	if body.has_method("damage"):
 		body.damage(damage)
 	Effects = get_node_or_null("/root/Game/Effects")

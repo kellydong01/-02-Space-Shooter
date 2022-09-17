@@ -27,4 +27,11 @@ polygon = PoolVector2Array( 8, -36.1, 18.2, -17.5, 19.4, -17.5, 56, -0.299999, 5
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( -5, -33, -15, -19, -43, 4, -30, 30, -14, 30, -8, 33, 5, 32, 13, 28, 28, 34, 41, 0, 19, -16, 13, -24, 6, -33 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 2602
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

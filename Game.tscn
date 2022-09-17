@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=1]
 [ext_resource path="res://Asteroid/Asteroid_Container.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=6]
 [ext_resource path="res://Assets/buttonBlue.png" type="Texture" id=7]
+[ext_resource path="res://Assets/background3.jpg" type="Texture" id=8]
+[ext_resource path="res://Assets/buttonRed.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -29,6 +31,15 @@ size = 28
 font_data = ExtResource( 5 )
 
 [node name="Game" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -198.0, 1301.0, 1304.0, 1304.0, 1627.0, 2602.0 ],
+"_edit_vertical_guides_": [ 1995.0, 2240.0, 2560.0, 2560.0 ]
+}
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
 
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -73,8 +84,14 @@ align = 2
 valign = 1
 
 [node name="Indicator_Container" type="Control" parent="UI/HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.002
+anchor_top = 0.053
+anchor_right = 0.176
+anchor_bottom = 0.093
+margin_left = -0.84
+margin_top = 2.76
+margin_right = 0.0799866
+margin_bottom = -0.440002
 
 [node name="Timer" type="Timer" parent="UI/HUD"]
 autostart = true
@@ -92,32 +109,32 @@ align = 1
 valign = 1
 
 [node name="Menu" type="Control" parent="UI"]
+pause_mode = 2
 visible = false
-anchor_top = 0.177
-anchor_bottom = 0.177
-margin_top = 2.84
-margin_right = 200.0
-margin_bottom = 179.84
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -88.5
+margin_right = 100.0
+margin_bottom = 88.5
 script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
-anchor_top = 4.85
-anchor_right = 5.0
-anchor_bottom = 9.275
-margin_top = -858.45
-margin_right = -800.0
-margin_bottom = -1464.68
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -0.00512695
 color = Color( 0, 0, 0, 0.25098 )
 
 [node name="Restart" type="Button" parent="UI/Menu"]
-anchor_left = 0.3
-anchor_top = 6.25
-anchor_right = 4.687
-anchor_bottom = 7.094
-margin_left = -45.0
-margin_top = -1061.25
-margin_right = -688.4
-margin_bottom = -1165.64
+anchor_left = 0.075
+anchor_top = 0.254
+anchor_right = 1.0
+anchor_bottom = 0.445
+margin_top = 0.0419998
+margin_right = 48.9999
+margin_bottom = 11.2329
 rect_scale = Vector2( 0.75, 0.75 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -130,14 +147,13 @@ icon = ExtResource( 7 )
 icon_align = 1
 
 [node name="Quit" type="Button" parent="UI/Menu"]
-anchor_left = 0.3
-anchor_top = 7.5
-anchor_right = 4.687
-anchor_bottom = 8.344
-margin_left = -45.0
-margin_top = -1232.5
-margin_right = -688.4
-margin_bottom = -1336.89
+anchor_left = 0.075
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 0.727
+margin_top = -0.0490036
+margin_right = 48.9999
+margin_bottom = 11.3189
 rect_scale = Vector2( 0.75, 0.75 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -146,7 +162,7 @@ custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Quit"
-icon = ExtResource( 7 )
+icon = ExtResource( 9 )
 icon_align = 1
 
 [node name="Label" type="Label" parent="UI/Menu"]
