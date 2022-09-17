@@ -5,8 +5,8 @@ var x_positions = [-100, 1200, 1500]
 var initial_position = Vector2.ZERO
 var velocity = Vector2(-60.0, 0.0)
 var r_speed = 2.5
-var y = 3.5
-var x = 5.0
+var y = 3
+var x = 4.5
 
 var nose = Vector2(0, -60)
 var health = 9
@@ -54,3 +54,4 @@ func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		body.damage(100)
 		damage(100)
+

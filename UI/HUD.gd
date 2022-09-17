@@ -1,12 +1,12 @@
 extends Control
 
 var lives_pos = Vector2.ZERO
-var lives_index = 40
+var lives_index = 50
 onready var Indicator = load("res://UI/Indicator.tscn")
 
 func _ready():
 	lives_pos.x = 20
-	lives_pos.y = Global.VP.y - 2590
+	lives_pos.y = Global.VP.y - 2570
 	update_score()
 	update_time()
 	update_lives()
@@ -24,7 +24,7 @@ func update_hp():
 func update_lives():
 	for child in $Indicator_Container.get_children():
 		child.queue_free()
-	for i in range(Global.lives):
+	for i in range(Global.lives - 1):
 		var indicator = Indicator.instance()
 		indicator.position = lives_pos + Vector2(lives_index*i, 0)
 		$Indicator_Container.add_child(indicator)

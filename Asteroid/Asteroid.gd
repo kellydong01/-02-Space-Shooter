@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var small_speed = 7.0
-var initial_speed = 5.0
+var small_speed = 6.3
+var initial_speed = 4.5
 var health = 12
 
 onready var Asteroid_small = load("res://Asteroid/Asteroid_Small.tscn")
 var small_asteroids = [Vector2(0,-30),Vector2(30,30),Vector2(-30,30), Vector2(30, -30)]
 
+
 func _ready():
-	velocity = Vector2(0,initial_speed*randf()).rotated(PI*2*randf())
+	velocity = Vector2(0,initial_speed*randf()).rotated(PI*2*randf()*5)
 
 func _physics_process(_delta):
 	position += velocity

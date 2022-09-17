@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var y_positions = [100,150,200,700,750]
+var y_positions = [100, 350, 700, 1000, 1400, 1550, 1900, 2450]
 var x_positions = [-100, 800]
 var initial_position = Vector2.ZERO
 var direction = Vector2(1.5,0)
@@ -21,7 +21,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	rotation_degrees += r_speed
-	position += direction*3.5
+	position += direction*2.5
 	position.y = initial_position.y + sin(position.x/20)*wobble
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)

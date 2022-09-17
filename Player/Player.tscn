@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/player.png" type="Texture" id=2]
 [ext_resource path="res://Assets/exhaust.png" type="Texture" id=3]
+[ext_resource path="res://Assets/laser_sfx.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/explosion.wav" type="AudioStream" id=5]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 15
@@ -29,9 +31,20 @@ polygon = PoolVector2Array( -5, -33, -15, -19, -43, 4, -30, 30, -14, 30, -8, 33,
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
 limit_top = 0
 limit_right = 2560
 limit_bottom = 2602
 
+[node name="Shoot_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="finished" from="Shoot_Sound" to="." method="_on_Shoot_Sound_finished"]
+[connection signal="finished" from="Explosion" to="." method="_on_Explosion_finished"]
