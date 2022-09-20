@@ -9,6 +9,8 @@ var score = 0
 var time = 0
 var lives = 0
 var health = 0
+var bullets = 0
+var highest_score = 0
 
 var scores = []
 
@@ -28,7 +30,9 @@ func reset():
 	time = 120
 	lives = 6
 	health = 100
+	bullets = 50
 	load_scores()
+	highest_score = scores[0]['score']
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
@@ -62,6 +66,21 @@ func update_lives():
 		var _scene = get_tree().change_scene("res://UI/End_Game.tscn")
 	if hud != null:
 		hud.update_lives()
+
+func update_bullets():
+	bullets -= 1
+	var hud = get_node_or_null("/root/Game/UI/HUD")
+	if bullets < 0:
+		var reload = Timer.new()
+		reload.set_wait_time(2)
+		reload.set_one_shot(true)
+		self.add_child(reload)
+		reload.start()
+		yield(reload, "timeout")
+		bullets = 50
+		reload.queue_free()
+	if hud != null:
+		hud.update_bullets()
 
 func add_score():
 	var temp = []

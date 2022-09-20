@@ -11,6 +11,9 @@ func _ready():
 	update_time()
 	update_lives()
 	update_hp()
+	update_bullets()
+	high_score()
+	
 
 func update_score():
 	$Score.text = "Score: " + str(Global.score)
@@ -28,6 +31,12 @@ func update_lives():
 		var indicator = Indicator.instance()
 		indicator.position = lives_pos + Vector2(lives_index*i, 0)
 		$Indicator_Container.add_child(indicator)
+
+func update_bullets():
+	$Bullet_Ammo.text = "Bullets: " + str(Global.bullets) + "/50"
+	
+func high_score():
+	$Highest_Score.text = "Highest Score: " + str(Global.highest_score)
 
 func _on_Timer_timeout():
 	Global.time -= 1

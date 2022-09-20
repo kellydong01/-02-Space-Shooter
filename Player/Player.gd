@@ -15,7 +15,7 @@ var Effects = null
 var Planet = null
 var planet_mass = 200000.0
 var planet_mass_2 = 350000.0
-var black_hole_mass = 1000000.0
+var black_hole_mass = 800000.0
 
 func _ready():
 	pass
@@ -58,11 +58,13 @@ func get_input():
 func shoot():
 	Effects = get_node_or_null("/root/Game/Effects")
 	if Effects != null:
-		var bullet = Bullet.instance()
-		Effects.add_child(bullet)
-		bullet.rotation = rotation
-		bullet.position = global_position + nose.rotated(rotation)
-		$Shoot_Sound.playing = true
+		if Global.bullets >= 0:
+			var bullet = Bullet.instance()
+			Effects.add_child(bullet)
+			bullet.rotation = rotation
+			bullet.position = global_position + nose.rotated(rotation)
+			$Shoot_Sound.playing = true
+			Global.update_bullets()
 
 func damage(d):
 	health -= d
@@ -80,6 +82,8 @@ func damage(d):
 			Global.update_lives()
 			Global.health = 100
 			Global.update_hp(0)
+			Global.bullets = 50
+			Global.update_bullets()
 		queue_free()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=1]
 [ext_resource path="res://Asteroid/Asteroid_Container.gd" type="Script" id=2]
@@ -32,6 +32,14 @@ size = 24
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=12]
 size = 24
 font_data = ExtResource( 5 )
 
@@ -74,7 +82,7 @@ rect_scale = Vector2( 2, 2 )
 shape = SubResource( 8 )
 
 [node name="Planet2" type="StaticBody2D" parent="."]
-position = Vector2( 2368, 2257 )
+position = Vector2( 1874, 2452 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -149,14 +157,44 @@ align = 2
 valign = 1
 
 [node name="HP" type="Label" parent="UI/HUD"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -150.0
-margin_top = 5.0
-margin_right = 150.0
-margin_bottom = 75.0
+anchor_left = 0.276
+anchor_top = 0.005
+anchor_right = 0.276
+anchor_bottom = 0.005
+margin_left = -149.92
+margin_top = -0.400001
+margin_right = 150.08
+margin_bottom = 69.6
 custom_fonts/font = SubResource( 3 )
 text = "Health: "
+align = 1
+valign = 1
+
+[node name="Bullet_Ammo" type="Label" parent="UI/HUD"]
+anchor_left = 0.75
+anchor_top = 0.005
+anchor_right = 0.75
+anchor_bottom = 0.005
+margin_left = -150.0
+margin_top = -0.400001
+margin_right = 150.0
+margin_bottom = 69.6
+custom_fonts/font = SubResource( 11 )
+text = "Bullets:"
+align = 1
+valign = 1
+
+[node name="Highest_Score" type="Label" parent="UI/HUD"]
+anchor_left = 0.5
+anchor_top = 0.005
+anchor_right = 0.5
+anchor_bottom = 0.005
+margin_left = -150.0
+margin_top = -0.400001
+margin_right = 150.0
+margin_bottom = 69.6
+custom_fonts/font = SubResource( 12 )
+text = "Highest Score: "
 align = 1
 valign = 1
 
