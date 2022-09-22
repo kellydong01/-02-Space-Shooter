@@ -32,7 +32,10 @@ func reset():
 	health = 100
 	bullets = 50
 	load_scores()
-	highest_score = scores[0]['score']
+	if len(scores) > 0:
+		highest_score = scores[0]['score']
+	else:
+		highest_score = 0
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
