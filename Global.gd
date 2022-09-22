@@ -21,6 +21,9 @@ func _ready():
 	var _signal = get_tree().get_root().connect("size_changed", self, "_resize")
 	reset()
 
+func respawn():
+	var _scene = get_tree().change_scene("res://Game.tscn")
+
 func _resize():
 	pass
 
@@ -67,6 +70,8 @@ func update_lives():
 	var hud = get_node_or_null("/root/Game/UI/HUD")
 	if lives == 0:
 		var _scene = get_tree().change_scene("res://UI/End_Game.tscn")
+	else:
+		respawn()
 	if hud != null:
 		hud.update_lives()
 

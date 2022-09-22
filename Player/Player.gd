@@ -82,7 +82,7 @@ func damage(d):
 			Global.update_lives()
 			Global.health = 100
 			Global.update_hp(0)
-			Global.bullets = 50
+			Global.bullets = 51
 			Global.update_bullets()
 		queue_free()
 
